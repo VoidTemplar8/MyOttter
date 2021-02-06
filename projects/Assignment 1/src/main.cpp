@@ -212,6 +212,7 @@ int main() {
 		ShaderMaterial::sptr tableMat = ShaderMaterial::Create();
 		tableMat->Shader = shader;
 		tableMat->Set("s_Diffuse", diffuse);
+		tableMat->Set("s_Specular", specular);
 
 		ShaderMaterial::sptr modelMat = ShaderMaterial::Create();
 		modelMat->Shader = shader;

@@ -213,12 +213,20 @@ int main() {
 
 		GameObject obj1 = scene->CreateEntity("Ground"); 
 		{
+<<<<<<< Updated upstream:samples/INFR-2350U/Week 3 Starter/src/main.cpp
 			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/plane.obj");
 			obj1.emplace<RendererComponent>().SetMesh(vao).SetMaterial(grassMat);
 		}
+=======
+			VertexArrayObject::sptr sceneVao = NotObjLoader::LoadFromFile("Sample.notobj");
+			sceneObj.emplace<RendererComponent>().SetMesh(sceneVao).SetMaterial(material1);
+			sceneObj.get<Transform>().SetLocalPosition(0.0f, 0.0f, 0.0f);
+		} 
+>>>>>>> Stashed changes:projects/GraphicsTests/src/main.cpp
 
-		GameObject obj2 = scene->CreateEntity("monkey_quads");
+		GameObject obj2 = scene->CreateEntity("Character2");
 		{
+<<<<<<< Updated upstream:samples/INFR-2350U/Week 3 Starter/src/main.cpp
 			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/monkey_quads.obj");
 			obj2.emplace<RendererComponent>().SetMesh(vao).SetMaterial(stoneMat);
 			obj2.get<Transform>().SetLocalPosition(0.0f, 0.0f, 2.0f);
@@ -236,6 +244,20 @@ int main() {
 				//Randomly places
 				randomTrees[i].get<Transform>().SetLocalPosition(glm::vec3(Util::GetRandomNumberBetween(glm::vec2(-PLANE_X, -PLANE_Y), glm::vec2(PLANE_X, PLANE_Y), glm::vec2(-DNS_X, -DNS_Y), glm::vec2(DNS_X, DNS_Y)), 0.0f));
 			}
+=======
+			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/Character2.obj");
+			obj2.emplace<RendererComponent>().SetMesh(vao).SetMaterial(material0);
+			obj2.get<Transform>().SetLocalPosition(0.0f, 0.0f, 1.0f);
+			BehaviourBinding::BindDisabled<SimpleMoveBehaviour>(obj2);
+		}
+		 
+		GameObject obj3 = scene->CreateEntity("Character2.2");
+		{
+			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/Character2.obj");
+			obj3.emplace<RendererComponent>().SetMesh(vao).SetMaterial(reflectiveMat);
+			obj3.get<Transform>().SetLocalPosition(2.0f, 0.0f, 1.0f);
+			BehaviourBinding::BindDisabled<SimpleMoveBehaviour>(obj3);
+>>>>>>> Stashed changes:projects/GraphicsTests/src/main.cpp
 		}
 
 		std::vector<GameObject> randomTrees2;
@@ -262,6 +284,23 @@ int main() {
 			}
 		}
 
+<<<<<<< Updated upstream:samples/INFR-2350U/Week 3 Starter/src/main.cpp
+=======
+		GameObject obj6 = scene->CreateEntity("Character_sample");
+		{
+			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/Character2.obj");
+			obj6.emplace<RendererComponent>().SetMesh(vao).SetMaterial(reflectiveMat);
+			obj6.get<Transform>().SetLocalPosition(0.0f, 0.0f, 3.0f);
+			obj6.get<Transform>().SetParent(obj4);
+			
+			auto pathing = BehaviourBinding::Bind<FollowPathBehaviour>(obj6);
+			// Set up a path for the object to follow
+			pathing->Points.push_back({ 0.0f, 0.0f, 1.0f });
+			pathing->Points.push_back({ 0.0f, 0.0f, 3.0f });
+			pathing->Speed = 2.0f;
+		}
+		
+>>>>>>> Stashed changes:projects/GraphicsTests/src/main.cpp
 		// Create an object to be our camera
 		GameObject cameraObject = scene->CreateEntity("Camera");
 		{
@@ -277,6 +316,17 @@ int main() {
 			BehaviourBinding::Bind<CameraControlBehaviour>(cameraObject);
 		}
 
+		Framebuffer* testBuffer;
+		GameObject framebufferObject = scene->CreateEntity("Basic Buffer");
+		{
+			int width, height;
+			glfwGetWindowSize(BackendHandler::window, &width, &height);
+
+			testBuffer = &framebufferObject.emplace<Framebuffer>();
+			testBuffer->AddDepthTarget();
+			testBuffer->AddColorTarget(GL_RGBA8);
+			testBuffer->Init(width, height);
+		}
 		#pragma endregion 
 		//////////////////////////////////////////////////////////////////////////////////////////
 
@@ -379,6 +429,8 @@ int main() {
 			});
 
 			// Clear the screen
+			testBuffer->Clear();
+
 			glClearColor(0.08f, 0.17f, 0.31f, 1.0f);
 			glEnable(GL_DEPTH_TEST);
 			glClearDepth(1.0f);
@@ -417,6 +469,8 @@ int main() {
 			Shader::sptr current = nullptr;
 			ShaderMaterial::sptr currentMat = nullptr;
 
+			testBuffer->Bind();
+
 			// Iterate over the render group components and draw them
 			renderGroup.each( [&](entt::entity e, RendererComponent& renderer, Transform& transform) {
 				// If the shader has changed, set up it's uniforms
@@ -433,6 +487,10 @@ int main() {
 				// Render the mesh
 				BackendHandler::RenderVAO(renderer.Material->Shader, renderer.Mesh, viewProjection, transform);
 			});
+
+			testBuffer->Unbind();
+
+			testBuffer->DrawToBackbuffer();
 
 			// Draw our ImGui content
 			BackendHandler::RenderImGui();
