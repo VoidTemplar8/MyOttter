@@ -62,7 +62,7 @@ void PostEffect::Clear()
 	}
 }
 
-void PostEffect::Upload()
+void PostEffect::Unload()
 {
 	for (unsigned int i = 0; i < _buffers.size(); i++)
 	{

@@ -8,15 +8,15 @@ public:
 	//Initializes framebuffer
 	void Init(unsigned width, unsigned height) override;
 
-	//applies effect to this buffer
+	//Applies effect to this buffer
 	void ApplyEffect(PostEffect* buffer) override;
 
 	//Getters
 	float GetIntensity() const;
 
-	//Setters 
+	//Setters
 	void SetIntensity(float intensity);
 
 private:
-	float _intensity = 0.7;
+	float _intensity = 0.7f;
 };

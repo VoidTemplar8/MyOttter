@@ -1,0 +1,65 @@
+# Blender MTL File: 'icg midterm.blend'
+# Material Count: 6
+
+newmtl Material.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Material.003
+Ns 493.352432
+Ka 0.817308 0.817308 0.817308
+Kd 0.034505 0.034505 0.034505
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Material.004
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.132865 0.000365 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.012
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\loglo\\Downloads\\Second Year Second Semester\\ICG personal Otter\\MyOttter\\projects\\Midterm Intermediate CG\\res\\images\\UVobject.png
+
+newmtl blade
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\loglo\\Downloads\\Second Year Second Semester\\ICG personal Otter\\MyOttter\\projects\\Midterm Intermediate CG\\res\\images\\UVobject.png
+
+newmtl design_2
+Ns 132.605325
+Ka 0.551069 0.551069 0.551069
+Kd 0.007234 0.531211 0.307180
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\loglo\\Downloads\\Second Year First Semester\\Modeling & Animation System 1\\Diorama\\UV not character coloured.png

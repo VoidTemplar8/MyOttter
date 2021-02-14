@@ -10,11 +10,8 @@ public:
 	void Init(unsigned width, unsigned height) override;
 
 	//Applies the effect to this buffer
-	//passes the previous framebuffer witrh the texture to apply as parameter
+	//passes the previous framebuffer with the texture to apply as parameter
 	void ApplyEffect(PostEffect* buffer) override;
-
-	//Applies the effect to the screen
-	//void DrawToScreen() override;
 
 	//Getters
 	float GetIntensity() const;

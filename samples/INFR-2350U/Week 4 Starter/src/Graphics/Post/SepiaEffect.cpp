@@ -14,8 +14,6 @@ void SepiaEffect::Init(unsigned width, unsigned height)
     _shaders[index]->LoadShaderPartFromFile("shaders/passthrough_vert.glsl", GL_VERTEX_SHADER);
     _shaders[index]->LoadShaderPartFromFile("shaders/Post/sepia_frag.glsl", GL_FRAGMENT_SHADER);
     _shaders[index]->Link();
-
-    PostEffect::Init(width, height);
 }
 
 void SepiaEffect::ApplyEffect(PostEffect* buffer)
@@ -26,9 +24,10 @@ void SepiaEffect::ApplyEffect(PostEffect* buffer)
     buffer->BindColorAsTexture(0, 0, 0);
 
     _buffers[0]->RenderToFSQ();
+
     buffer->UnbindTexture(0);
 
-    UnbindShader(); 
+    UnbindShader();
 }
 
 float SepiaEffect::GetIntensity() const

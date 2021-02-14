@@ -213,20 +213,12 @@ int main() {
 
 		GameObject obj1 = scene->CreateEntity("Ground"); 
 		{
-<<<<<<< Updated upstream:samples/INFR-2350U/Week 3 Starter/src/main.cpp
 			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/plane.obj");
 			obj1.emplace<RendererComponent>().SetMesh(vao).SetMaterial(grassMat);
 		}
-=======
-			VertexArrayObject::sptr sceneVao = NotObjLoader::LoadFromFile("Sample.notobj");
-			sceneObj.emplace<RendererComponent>().SetMesh(sceneVao).SetMaterial(material1);
-			sceneObj.get<Transform>().SetLocalPosition(0.0f, 0.0f, 0.0f);
-		} 
->>>>>>> Stashed changes:projects/GraphicsTests/src/main.cpp
 
-		GameObject obj2 = scene->CreateEntity("Character2");
+		GameObject obj2 = scene->CreateEntity("monkey_quads");
 		{
-<<<<<<< Updated upstream:samples/INFR-2350U/Week 3 Starter/src/main.cpp
 			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/monkey_quads.obj");
 			obj2.emplace<RendererComponent>().SetMesh(vao).SetMaterial(stoneMat);
 			obj2.get<Transform>().SetLocalPosition(0.0f, 0.0f, 2.0f);
@@ -244,20 +236,6 @@ int main() {
 				//Randomly places
 				randomTrees[i].get<Transform>().SetLocalPosition(glm::vec3(Util::GetRandomNumberBetween(glm::vec2(-PLANE_X, -PLANE_Y), glm::vec2(PLANE_X, PLANE_Y), glm::vec2(-DNS_X, -DNS_Y), glm::vec2(DNS_X, DNS_Y)), 0.0f));
 			}
-=======
-			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/Character2.obj");
-			obj2.emplace<RendererComponent>().SetMesh(vao).SetMaterial(material0);
-			obj2.get<Transform>().SetLocalPosition(0.0f, 0.0f, 1.0f);
-			BehaviourBinding::BindDisabled<SimpleMoveBehaviour>(obj2);
-		}
-		 
-		GameObject obj3 = scene->CreateEntity("Character2.2");
-		{
-			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/Character2.obj");
-			obj3.emplace<RendererComponent>().SetMesh(vao).SetMaterial(reflectiveMat);
-			obj3.get<Transform>().SetLocalPosition(2.0f, 0.0f, 1.0f);
-			BehaviourBinding::BindDisabled<SimpleMoveBehaviour>(obj3);
->>>>>>> Stashed changes:projects/GraphicsTests/src/main.cpp
 		}
 
 		std::vector<GameObject> randomTrees2;
@@ -284,23 +262,6 @@ int main() {
 			}
 		}
 
-<<<<<<< Updated upstream:samples/INFR-2350U/Week 3 Starter/src/main.cpp
-=======
-		GameObject obj6 = scene->CreateEntity("Character_sample");
-		{
-			VertexArrayObject::sptr vao = ObjLoader::LoadFromFile("models/Character2.obj");
-			obj6.emplace<RendererComponent>().SetMesh(vao).SetMaterial(reflectiveMat);
-			obj6.get<Transform>().SetLocalPosition(0.0f, 0.0f, 3.0f);
-			obj6.get<Transform>().SetParent(obj4);
-			
-			auto pathing = BehaviourBinding::Bind<FollowPathBehaviour>(obj6);
-			// Set up a path for the object to follow
-			pathing->Points.push_back({ 0.0f, 0.0f, 1.0f });
-			pathing->Points.push_back({ 0.0f, 0.0f, 3.0f });
-			pathing->Speed = 2.0f;
-		}
-		
->>>>>>> Stashed changes:projects/GraphicsTests/src/main.cpp
 		// Create an object to be our camera
 		GameObject cameraObject = scene->CreateEntity("Camera");
 		{

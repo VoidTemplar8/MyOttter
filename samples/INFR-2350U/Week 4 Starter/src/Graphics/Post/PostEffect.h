@@ -6,7 +6,7 @@
 class PostEffect
 {
 public:
-	//Initialize this effect (will be overriden in each derived class)
+	//Initialize this effects (will be overriden in each derived class)
 	virtual void Init(unsigned width, unsigned height);
 
 	//Applies the effect
@@ -19,8 +19,8 @@ public:
 	//Clears the buffers
 	void Clear();
 
-	//Uploads all the buffers
-	void Upload();
+	//Unloads all the buffers
+	void Unload();
 
 	//Binds buffers
 	void BindBuffer(int index);
@@ -37,8 +37,8 @@ public:
 
 protected:
 	//Holds all our buffers for the effects
-	std::vector<Framebuffer*>_buffers;
+	std::vector<Framebuffer*> _buffers;
 
 	//Holds all our shaders for the effects
-	std::vector<Shader::sptr>_shaders;
+	std::vector<Shader::sptr> _shaders;
 };

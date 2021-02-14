@@ -4,8 +4,7 @@
 #include "Utilities/EnvironmentGenerator.h"
 #include "Graphics/Post/GreyscaleEffect.h"
 #include "Graphics/Post/SepiaEffect.h"
-#include "Graphics/Post/ColorCorrectionPostEffect.h"
-#include "Graphics/LUT.h"
+#include "Graphics/Post/ColorCorrectEffect.h"
 
 #include <iostream>
 #include <Logging.h>
