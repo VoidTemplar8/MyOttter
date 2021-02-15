@@ -153,10 +153,6 @@ int main() {
 				ambspec = false;
 				toon = true;
 			}
-			if (ImGui::Checkbox("Texture", &tex))
-			{
-				tex = false;
-			}
 
 			shader->SetUniform("u_ambientToggle", (int)amb);
 			shader->SetUniform("u_specularToggle", (int)spec);
@@ -248,7 +244,7 @@ int main() {
 			auto name = controllables[selectedVao].get<GameObjectTag>().Name;
 			ImGui::Text(name.c_str());
 			auto behaviour = BehaviourBinding::Get<SimpleMoveBehaviour>(controllables[selectedVao]);
-			ImGui::Checkbox("Relative Rotation", &behaviour->Relative);
+			//ImGui::Checkbox("Relative Rotation", &behaviour->Relative);
 
 			ImGui::Text("Q/E -> Yaw\nLeft/Right -> Roll\nUp/Down -> Pitch\nY -> Toggle Mode");
 		
